@@ -43,3 +43,7 @@ console.log(addtwo(4,5))
 
  // retuning object uing arrow function
  const object = (num1,num2)=>  ({username:"karik"})
+
+
+ // console.log(this).  on chrome inspect console give =>>> window object 
+ 
