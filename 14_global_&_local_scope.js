@@ -27,3 +27,4 @@ if(true){
     console.log("inner = ",n);
 }
 console.log("outside = ",n);
+
