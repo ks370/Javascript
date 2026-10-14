@@ -56,3 +56,9 @@ document.querySelector('.heading') // by class
 const myh1=document.querySelectorAll('h1')
 //myh1.style.backgroundColor='green' // not done like this we have to specify which h1 heading
 myh1[0].style.backgroundColor='green'
+
+
+
+
+
+
