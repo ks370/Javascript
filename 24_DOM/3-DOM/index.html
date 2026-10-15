@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM| chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="langauge">
+        <li>javadscript</li>
+    </ul>
+</body>
+ <script>
+
+//adding element in list
+        function addlangauge(langname){
+           const li= document.createElement('li');
+           li.innerHTML=`${langname}`
+           document.querySelector('.langauge').appendChild(li)  //  selecting ul and append element 
+        }
+        addlanguage("python")
+        addlangauge("TYPEscript")
+// in this way we are transvering all ul  which is not much optimize
+
+ 
+        //optimize way of doing same thing. 
+        function addoptilangaueg(langname){
+            const li=document.createElement('li');
+            li.appendChild(document.TEXT_NODE(langname))
+            document.querySelector(".language").appendChild(li)
+        }
+        addoptilangaueg("golang")
+
+
+// edit element 
+
+        const secondlang=querySelector("li:nth-chile(2)")
+       // secondlang.innerHTML="nojo"
+
+       const newli=document.createElement('li')
+       newli.textContent="mojo"
+       secondlang.replaceWith(newli)
+
+//edit
+
+     const firstlang=querySelector("li:nth-chile(2)")
+       // firstlang.outerHTML='<li>TYPEscript</li>'
+
+       const newli=document.createElement('li')
+       newli.textContent="mojo"
+       secondlang.replaceWith(newli)
+
+
+// remove
+const lastlang=document.querySelector('li:last-child')
+lastlang.remove()
+
+
+
+    </script>
+</html>
