@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello everyone how are you?</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const saykartik=function(){
+        console.log("kartik");
+    }
+    const changetxt=function(){
+        document.querySelector('h1').innerHTML="where are u form "
+    }
+    const changeme =setTimeout(changetxt,2000) // saykartik ->give reference and  saykartik()->give excution
+
+    document.querySelector('stop').addEventListener('click',function(){
+        clearTimeout(changeme)
+        console.log("stopped") // by clicking stopped we stop the work to do 
+    })    //. need refernece where u want to use
+ </script>
+</html>
