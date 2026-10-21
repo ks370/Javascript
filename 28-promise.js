@@ -122,3 +122,11 @@ fetch('https://jsonplaceholder.typicode.com/users')
 .catch((error)=>{
     console.log(error)
 })
+
+
+
+
+/* in output the the data of json comes on top and then previous code are running 
+bcz in fetch there is special type of queue. micro task queue / fetch queue/priority Queue
+
+*/
