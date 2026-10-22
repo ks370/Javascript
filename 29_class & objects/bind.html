@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>clicked</button>
+</body>
+<script>
+    class react{
+        constructor(){
+            this.libarary="react"
+            this.server="https://localhost:300"
+//requirement 
+            document.querySelector('button').addEventListener('click',this.handleclicked.bind(this))// if not using bind it give undefined
+        }
+
+        /*. - this.handleclicked refers to the class method.
+            - .bind(this) ensures that this inside handleclicked() refers to the current react object.*/
+       
+        handleclicked(){
+            console.log("button clicked")
+            console.log(this.server)
+        }
+    }
+</script>
+</html>
