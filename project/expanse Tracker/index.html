@@ -27,6 +27,14 @@
             <div class="card">
                 <h3>Total Income</h3>
                 <h2 class="income" id="income">₹0</h2>
+                <input
+                    type="number"
+                    id="income_input"
+                    placeholder="Enter income"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
             </div>
 
             <div class="card">
@@ -59,6 +67,7 @@
                     step="0.01"
                     required
                 >
+               
 
                 <label for="category">Category</label>
                 <select id="category" required>
@@ -87,4 +96,5 @@
     </div>
 
 </body>
+<script src="script.js"></script>
 </html>

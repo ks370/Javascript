@@ -32,6 +32,6 @@ adding.addEventListener("click", function () {
     li.remove();
   });
 
-  // make input box vacent after adding task and deleteing 
+  // make input box vacent after adding task and deleteing
   inputbox.value = "";
 });
