@@ -18,7 +18,7 @@ add.addEvenListener('submit',function(event){
     const expansecategory=category.value;
     const totalincome = Number(income_input.value);
 
-    // calculating balance 
+    // calculating bal ance 
     totalexpanse=totalexpanse+expanseamount
     //printint balance in total balance section
     incometotal.textContent=`₹${totalincome}`

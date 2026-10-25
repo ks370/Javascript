@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LifeOS personal productivity dashboard">
+    <title>LifeOS | Productivity Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <div class="app-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="#dashboard" class="brand">
+                <span class="brand-icon">L</span>
+                <span>LifeOS</span>
+            </a>
+
+            <p class="nav-label">WORKSPACE</p>
+            <nav class="navigation">
+                <a href="#dashboard" class="nav-link active">▦ Dashboard</a>
+                <a href="#tasks" class="nav-link">✓ My Tasks</a>
+                <a href="#calendar" class="nav-link">▦ Calendar</a>
+                <a href="#notes" class="nav-link">▤ Notes</a>
+                <a href="#focus" class="nav-link">◷ Focus Timer</a>
+                <a href="#analytics" class="nav-link">▥ Analytics</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p class="nav-label">PREFERENCES</p>
+                <button id="theme-btn" class="nav-link full-width">
+                    ◐ Toggle Theme
+                </button>
+                <p class="sidebar-footer">Build better days.</p>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content" id="dashboard">
+
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow" id="current-date">YOUR WORKSPACE</p>
+                    <h1>Good day! 👋</h1>
+                    <p class="subtitle">Plan your day. Make it count.</p>
+                </div>
+                <div class="profile">
+                    <div class="avatar">K</div>
+                    <div>
+                        <strong>My Workspace</strong>
+                        <p class="muted">Personal account</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Summary cards -->
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <p>Total Tasks</p>
+                    <h2 id="total-tasks">0</h2>
+                    <span class="stat-caption">Tasks created</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Completed</p>
+                    <h2 id="completed-tasks">0</h2>
+                    <span class="stat-caption">Tasks finished</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Pending</p>
+                    <h2 id="pending-tasks">0</h2>
+                    <span class="stat-caption">Tasks remaining</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Completion Rate</p>
+                    <h2 id="completion-rate">0%</h2>
+                    <span class="stat-caption">Overall progress</span>
+                </article>
+            </section>
+
+            <div class="content-grid">
+
+                <!-- Task manager -->
+                <section class="panel tasks-panel" id="tasks">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">STAY ORGANIZED</p>
+                            <h2>My Tasks</h2>
+                        </div>
+                        <span class="pill" id="task-count">0 tasks</span>
+                    </div>
+
+                    <form id="task-form">
+                        <label for="task-input">Task name</label>
+                        <input
+                            type="text"
+                            id="task-input"
+                            placeholder="What do you need to do?"
+                            required
+                            maxlength="120"
+                        >
+
+                        <div class="form-row">
+                            <div>
+                                <label for="task-category">Category</label>
+                                <select id="task-category">
+                                    <option value="Study">Study</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Personal">Personal</option>
+                                    <option value="Health">Health</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="task-priority">Priority</label>
+                                <select id="task-priority">
+                                    <option value="Medium">Medium</option>
+                                    <option value="High">High</option>
+                                    <option value="Low">Low</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label for="task-deadline">Deadline</label>
+                        <input type="date" id="task-deadline">
+
+                        <button type="submit" class="primary-btn">
+                            + Add Task
+                        </button>
+                    </form>
+
+                    <div class="task-toolbar">
+                        <input
+                            type="search"
+                            id="task-search"
+                            placeholder="Search tasks..."
+                            aria-label="Search tasks"
+                        >
+
+                        <select id="task-filter" aria-label="Filter tasks">
+                            <option value="all">All Tasks</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+
+                        <select id="sort-tasks" aria-label="Sort tasks">
+                            <option value="newest">Newest</option>
+                            <option value="priority">Priority</option>
+                            <option value="deadline">Deadline</option>
+                        </select>
+                    </div>
+
+                    <div id="task-list" class="task-list">
+                        <p id="empty-tasks" class="empty-state">
+                            No tasks yet. Add your first task above!
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Right column -->
+                <div class="right-column">
+
+                    <!-- Focus timer -->
+                    <section class="panel focus-panel" id="focus">
+                        <p class="eyebrow">DEEP WORK</p>
+                        <h2>Focus Timer</h2>
+                        <p class="muted">One thing at a time.</p>
+
+                        <div class="timer-display" id="timer-display">
+                            25:00
+                        </div>
+
+                        <p id="timer-status" class="timer-status">
+                            Ready to focus
+                        </p>
+
+                        <div class="timer-modes">
+                            <button type="button" class="mode-btn active"
+                                data-minutes="25">Focus</button>
+                            <button type="button" class="mode-btn"
+                                data-minutes="5">Short Break</button>
+                            <button type="button" class="mode-btn"
+                                data-minutes="15">Long Break</button>
+                        </div>
+
+                        <div class="timer-actions">
+                            <button type="button" id="start-timer"
+                                class="primary-btn">Start</button>
+                            <button type="button" id="reset-timer"
+                                class="secondary-btn">Reset</button>
+                        </div>
+                    </section>
+
+                    <!-- Notes -->
+                    <section class="panel" id="notes">
+                        <div class="section-header">
+                            <h2>Quick Notes</h2>
+                        </div>
+
+                        <form id="note-form">
+                            <label for="note-title">Title</label>
+                            <input id="note-title" type="text"
+                                placeholder="Note title" required
+                                maxlength="100">
+
+                            <label for="note-content">Your note</label>
+                            <textarea id="note-content" rows="3"
+                                placeholder="Write something..."
+                                required maxlength="2000"></textarea>
+
+                            <button type="submit" class="primary-btn">
+                                Save Note
+                            </button>
+                        </form>
+
+                        <div id="notes-list" class="notes-list">
+                            <p id="empty-notes" class="empty-state">
+                                Your saved notes will appear here.
+                            </p>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <!-- Calendar and analytics -->
+            <div class="bottom-grid">
+
+                <section class="panel" id="calendar">
+                    <p class="eyebrow">PLAN AHEAD</p>
+                    <h2>Upcoming Deadlines</h2>
+                    <div id="upcoming-list">
+                        <p class="empty-state">
+                            Your upcoming tasks will appear here.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="panel" id="analytics">
+                    <p class="eyebrow">YOUR PROGRESS</p>
+                    <h2>Productivity Overview</h2>
+
+                    <div class="progress-info">
+                        <span>Task completion</span>
+                        <strong id="progress-label">0%</strong>
+                    </div>
+
+                    <div class="progress-track">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+
+                    <div class="analytics-stats">
+                        <div>
+                            <span class="muted">Focus sessions</span>
+                            <h3 id="focus-sessions">0</h3>
+                        </div>
+                        <div>
+                            <span class="muted">Notes saved</span>
+                            <h3 id="notes-count">0</h3>
+                        </div>
+                    </div>
+
+                    <p id="analytics-message" class="empty-state">
+                        Start completing tasks to see your progress.
+                    </p>
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                LifeOS · Make every day count.
+            </footer>
+        </main>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
