@@ -11,7 +11,7 @@ const incometotal=document.querySelector("#income")
 let totalexpanse=0;
 
 // addding event on add expanse button
-add.addEventListener('submit',function(event){
+add.addEvenListener('submit',function(event){
     event.preventDefault();
     const expansename=expanse.value;
     const expanseamount = Number(amount.value);
