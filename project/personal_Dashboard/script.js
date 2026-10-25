@@ -8,10 +8,14 @@ const list=document.querySelector("#task-list")
 const searchinput=document.querySelector("#task-search")
 const taskfilter=document.querySelector("#task-filter")
 const sorttask=document.querySelector("#sort-tasks")
+const totaltask=document.querySelector("#total-task")
+const completed=document.querySelector("#completed-task")
+const pending=document.querySelector("#pending-task")
+const completionrate=document.querySelector("#completion-rate")
 // making array for task 
 let taskarray=[]
 
-// stoding in local storage
+// storing in local storage
 function savetask(){
     localStorage.setItem("task",JSON.stringify(taskarray))
 }
@@ -59,16 +63,16 @@ function rendertask(){
          })
          // creating checkbox for tasks 
          const checkbox = document.createElement("input")
-        checkbox.checked=task.completed;
+        checkbox.checked=task.complete;
          checkbox.type="checkbox"
          // adding to list 
          li.appendChild(checkbox)
-         if(task.completed){
+         if(task.complete){
             li.style.textDecoration="line-through"
          }
          //adding event listing on checkboc
          checkbox.addEventListener('change',function(){
-            task.completed=checkbox.checked;
+            task.complete=checkbox.checked;
             savetask()
             rendertask()
          })
@@ -83,7 +87,7 @@ taskform.addEventListener('submit',function(event){
         taskcategory:category.value,
         taskpriority:priority.value,
         taskdate:date.value,
-        completed:false
+        complete:false
     }
    //console.log(task)
     // showing data in list form
